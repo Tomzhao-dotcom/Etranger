@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table( name = "EtrangerDataSource", schema = "etranger", catalog = "etranger" )
+@Table(name = "EtrangerDataSource", schema = "etranger", catalog = "etranger")
 public class EtrangerDataSourceEntity {
     private String code;
     private String name;
@@ -16,7 +16,7 @@ public class EtrangerDataSourceEntity {
     private String id;
 
     @Basic
-    @Column( name = "code", nullable = false, length = 100 )
+    @Column(name = "code", nullable = false, length = 100)
     public String getCode() {
         return code;
     }
@@ -26,7 +26,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "name", nullable = false, length = 255 )
+    @Column(name = "name", nullable = false, length = 255)
     public String getName() {
         return name;
     }
@@ -36,7 +36,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "dbtype", nullable = false, length = -1 )
+    @Column(name = "dbtype", nullable = false, length = -1)
     public String getDbtype() {
         return dbtype;
     }
@@ -46,7 +46,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "ip", nullable = false, length = 255 )
+    @Column(name = "ip", nullable = false, length = 255)
     public String getIp() {
         return ip;
     }
@@ -56,7 +56,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "dbname", nullable = false, length = 255 )
+    @Column(name = "dbname", nullable = false, length = 255)
     public String getDbname() {
         return dbname;
     }
@@ -66,7 +66,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "username", nullable = false, length = 255 )
+    @Column(name = "username", nullable = false, length = 255)
     public String getUsername() {
         return username;
     }
@@ -76,7 +76,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column( name = "password", nullable = false, length = 255 )
+    @Column(name = "password", nullable = false, length = 255)
     public String getPassword() {
         return password;
     }
@@ -86,7 +86,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Id
-    @Column( name = "id", nullable = false, length = 36 )
+    @Column(name = "id", nullable = false, length = 36)
     public String getId() {
         return id;
     }

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="header">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/vendor/fonts/circular-std/style.css}">
+        <link rel="stylesheet" th:href="@{/libs/css/style.css}">
+        <link rel="stylesheet" th:href="@{/vendor/fonts/fontawesome/css/fontawesome-all.css}">
+        <link rel="stylesheet" th:href="@{/vendor/charts/chartist-bundle/chartist.css}">
+        <link rel="stylesheet" th:href="@{/vendor/charts/morris-bundle/morris.css}">
+        <link rel="stylesheet" th:href="@{/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css}">
+        <link rel="stylesheet" th:href="@{/vendor/charts/c3charts/c3.css}">
+        <link rel="stylesheet" th:href="@{/vendor/fonts/flag-icon-css/flag-icon.min.css}">
+        <title>主数据管理</title>
+    </head>
+
+    <div class="dashboard-header" th:fragment="navbar">
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <a class="navbar-brand" th:href="@{/index}">主数据管理</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto navbar-right-top">
+                    <li class="nav-item">
+                        <div id="custom-search" class="top-search-bar">
+                            <input class="form-control" type="text" placeholder="Search..">
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown notification">
+                        <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                            <li>
+                                <div class="notification-title"> Notification</div>
+                                <div class="notification-list">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action active">
+                                            <div class="notification-info">
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-2.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Jeremy Rakestraw</span>accepted
+                                                    your invitation to join the team.
+                                                    <div class="notification-date">2 min ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="notification-info">
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-3.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">John Abraham </span>is
+                                                    now following you
+                                                    <div class="notification-date">2 days ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="notification-info">
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-4.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Monaan Pechi</span>
+                                                    is watching your main repository
+                                                    <div class="notification-date">2 min ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="notification-info">
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-5.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Jessica Caruso</span>accepted
+                                                    your invitation to join the team.
+                                                    <div class="notification-date">2 min ago</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list-footer"><a href="#">View all notifications</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown connection">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
+                            <li class="connection-list">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img th:src="@{/images/github.png}"
+                                                                                 alt="Github"> <span>Github</span></a>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img
+                                                th:src="@{/images/dribbble.png}" alt="Dribbble">
+                                            <span>Dribbble</span></a>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img th:src="@{/images/dropbox.png}"
+                                                                                 alt="Dropbox">
+                                            <span>Dropbox</span></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img
+                                                th:src="@{/images/bitbucket.png}" alt="Bitbucket">
+                                            <span>Bitbucket</span></a>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img
+                                                th:src="@{/images/mail_chimp.png}"
+                                                alt="Mail Chimp"><span>Mail Chimp</span></a>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                        <a href="#" class="connection-item"><img th:src="@{/images/slack.png}"
+                                                                                 alt="Slack"> <span>Slack</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="conntection-footer"><a href="#">More</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown nav-user">
+                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                src="assets/images/avatar-1.jpg" alt=""
+                                class="user-avatar-md rounded-circle"></a>
+                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                             aria-labelledby="navbarDropdownMenuLink2">
+                            <div class="nav-user-info">
+                                <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                <span class="status"></span><span class="ml-2">Available</span>
+                            </div>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="nav-left-sidebar sidebar-dark" th:fragment="sidebar(TFNav,TSNav,TNode)">
+        <div class="menu-list">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-divider">
+                            Master Data
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Master' ? true: false}"
+                               data-target="#submenu-m1" aria-controls="submenu-m1">
+                                <i class="fas fa-fw fa-table"></i>主数据管理
+                            </a>
+                            <div id="submenu-m1" class="collapse submenu"
+                                 th:class="${TFNav == 'Master' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'DataSource' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/mdm/data-source}">数据源定义
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'DataTable' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/mdm/data-tables}">模型定义
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'DataColumn' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/mdm/data-column}">字段设置
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'DynamicHierarchy' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/mdm/dynamic-hierarchy}">动态层级树
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-divider">
+                            Menu
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Dashboard' ? true: false}"
+                               data-target="#submenu-1" aria-controls="submenu-1">
+                                <i class="fa fa-fw fa-user-circle"></i>
+                                Dashboard
+                                <span class="badge badge-success">6</span>
+                            </a>
+                            <div id="submenu-1" class="collapse submenu"
+                                 th:class="${TFNav == 'Dashboard' ? 'collapse submenu show': 'collapse submenu'}"
+                                 style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse"
+                                           th:aria-expanded="${TSNav == 'MDM' ? true: false}"
+                                           data-target="#submenu-1-2"
+                                           aria-controls="submenu-1-2">MDM
+                                        </a>
+                                        <div id="submenu-1-2" class="collapse submenu"
+                                             th:class="${TSNav == 'MDM' ? 'collapse submenu show': 'collapse submenu'}"
+                                             style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'index' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/index}">MDM Dashboard
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'product' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/ecommerce-product}">Product List
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'single' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/ecommerce-product-single}">Product Single
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'checkout' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/ecommerce-product-checkout}">Product Checkout
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'finance' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/dashboard-finance}">Finance
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'sales' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/dashboard-sales}">Sales
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse"
+                                           th:aria-expanded="${TSNav == 'Infulencer' ? true: false}"
+                                           data-target="#submenu-1-1"
+                                           aria-controls="submenu-1-1">Infulencer
+                                        </a>
+                                        <div id="submenu-1-1" class="collapse submenu"
+                                             th:class="${TSNav == 'Infulencer' ? 'collapse submenu show': 'collapse submenu'}"
+                                             style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'influencer' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/dashboard-influencer}">Influencer
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'finder' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/influencer-finder}">Influencer Finder
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       th:class="${TNode == 'profile' ? 'nav-link active': 'nav-link'}"
+                                                       th:href="@{/influencer-profile}">Influencer Profile
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'UI' ? true: false}"
+                               data-target="#submenu-2" aria-controls="submenu-2">
+                                <i class="fa fa-fw fa-rocket"></i>UI Elements
+                            </a>
+                            <div id="submenu-2" class="collapse submenu"
+                                 th:class="${TFNav == 'UI' ? 'collapse submenu show': 'collapse submenu'}"
+                                 style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'cards' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/cards}">Cards
+                                            <span class="badge badge-secondary">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'general' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/general}">General
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'carousel' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/carousel}">Carousel
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'listgroup' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/listgroup}">List Group
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'typography' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/typography}">Typography
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'accordions' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/accordions}">Accordions
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'tabs' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/tabs}">Tabs
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Chart' ? true: false}"
+                               data-target="#submenu-3" aria-controls="submenu-3">
+                                <i class="fas fa-fw fa-chart-pie"></i>Chart
+                            </a>
+                            <div id="submenu-3" class="collapse submenu"
+                                 th:class="${TFNav == 'Chart' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:class="${TNode == 'c3' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-c3}">C3 Charts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'chartist' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-chartist}">Chartist Charts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'charts' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-charts}">Chart</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'morris' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-morris}">Morris</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'sparkline' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-sparkline}">Sparkline</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'gauge' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/chart-gauge}">Guage</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Forms' ? true: false}"
+                               data-target="#submenu-4" aria-controls="submenu-4">
+                                <i class="fab fa-fw fa-wpforms"></i>Forms
+                            </a>
+                            <div id="submenu-4" class="collapse submenu"
+                                 th:class="${TFNav == 'Forms' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'elements' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/form-elements}">Form Elements
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'validation' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/form-validation}">Parsely Validations
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'multiselect' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/multiselect}">Multiselect
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'datepicker' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/datepicker}">Date Picker
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'select' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/bootstrap-select}">Bootstrap Select
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Tables' ? true: false}"
+                               data-target="#submenu-5" aria-controls="submenu-5">
+                                <i class="fas fa-fw fa-table"></i>Tables
+                            </a>
+                            <div id="submenu-5" class="collapse submenu"
+                                 th:class="${TFNav == 'Tables' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'table' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/general-table}">General Tables
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'tables' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/data-tables}">Data Tables
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-divider">
+                            Features
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Pages' ? true: false}"
+                               data-target="#submenu-6" aria-controls="submenu-6"><i
+                                    class="fas fa-fw fa-file"></i> Pages
+                            </a>
+                            <div id="submenu-6" class="collapse submenu"
+                                 th:class="${TFNav == 'Pages' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'blankpage' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/blank-page}">Blank Page
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'header' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/blank-page-header}">Blank Page Header
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'login' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/login}">Login
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == '404page' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/404-page}">404 page
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'signup' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/sign-up}">Sign up Page
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'password' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/forgot-password}">Forgot Password
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'pricing' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/pricing}">Pricing Tables
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'timeline' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/timeline}">Timeline
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'calendar' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/calendar}">Calendar
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'sortable' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/sortable-nestable-lists}">Sortable/Nestable List
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'widgets' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/widgets}">Widgets
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'media' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/media-object}">Media Objects
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'cropper' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/cropper-image}">Cropper
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'color' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/color-picker}">Color Picker
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Apps' ? true: false}"
+                               data-target="#submenu-7" aria-controls="submenu-7"><i
+                                    class="fas fa-fw fa-inbox"></i>Apps <span
+                                    class="badge badge-secondary">New</span></a>
+                            <div id="submenu-7" class="collapse submenu"
+                                 th:class="${TFNav == 'Apps' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'inbox' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/inbox}">Inbox
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'details' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/email-details}">Email Detail
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'compose' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/email-compose}">Email Compose
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'chat' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/message-chat}">Message Chat
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Icons' ? true: false}"
+                               data-target="#submenu-8" aria-controls="submenu-8"><i
+                                    class="fas fa-fw fa-columns"></i>Icons</a>
+                            <div id="submenu-8" class="collapse submenu"
+                                 th:class="${TFNav == 'Icons' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'fontawesome' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-fontawesome}">FontAwesome Icons
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'material' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-material}">Material Icons
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'lineicon' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-simple-lineicon}">Simpleline Icon
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'themify' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-themify}">Themify Icon
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'flag' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-flag}">Flag Icons
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'weather' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/icon-weather}">Weather Icon
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Maps' ? true: false}"
+                               data-target="#submenu-9" aria-controls="submenu-9"><i
+                                    class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
+                            <div id="submenu-9" class="collapse submenu"
+                                 th:class="${TFNav == 'Maps' ? 'collapse submenu show': 'collapse submenu'}" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'google' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/map-google}">Google Maps
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           th:class="${TNode == 'vector' ? 'nav-link active': 'nav-link'}"
+                                           th:href="@{/pages/map-vector}">Vector Maps
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="collapse"
+                               th:aria-expanded="${TFNav == 'Level' ? true: false}"
+                               data-target="#submenu-10" aria-controls="submenu-10"><i
+                                    class="fas fa-f fa-folder"></i>Menu Level</a>
+                            <div id="submenu-10" class="collapse submenu" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Level 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse"
+                                           aria-expanded="false" data-target="#submenu-11"
+                                           aria-controls="submenu-11">Level 2</a>
+                                        <div id="submenu-11" class="collapse submenu" style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">Level 1</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">Level 2</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Level 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="footer" th:fragment="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    ©1996 - 2020 INSPUR Co., Ltd. 鲁ICP备05019369号. <a href="javascript: void(0);">主数据管理</a>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="text-md-right footer-links d-none d-sm-block">
+                        <a href="https://www.inspur.com">About</a>
+                        <a href="javascript: void(0);">Support</a>
+                        <a href="javascript: void(0);">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="javaScript">
+        <!-- Optional JavaScript -->
+        <!-- jquery 3.3.1 -->
+        <script th:src="@{/vendor/jquery/jquery-3.3.1.min.js}"></script>
+        <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.js}"></script>
+        <script th:src="@{/vendor/slimscroll/jquery.slimscroll.js}"></script>
+        <script th:src="@{/libs/js/main-js.js}"></script>
+        <!-- chart chartist js -->
+        <script th:src="@{/vendor/charts/chartist-bundle/chartist.min.js}"></script>
+        <!-- sparkline js -->
+        <script th:src="@{/vendor/charts/sparkline/jquery.sparkline.js}"></script>
+        <!-- morris js -->
+        <script th:src="@{/vendor/charts/morris-bundle/raphael.min.js}"></script>
+        <script th:src="@{/vendor/charts/morris-bundle/morris.js}"></script>
+        <!-- chart c3 js -->
+        <script th:src="@{/vendor/charts/c3charts/c3.min.js}"></script>
+        <script th:src="@{/vendor/charts/c3charts/d3-5.4.0.min.js}"></script>
+        <script th:src="@{/vendor/charts/c3charts/C3chartjs.js}"></script>
+        <script th:src="@{/libs/js/dashboard-ecommerce.js}"></script>
+    </div>
+</html>
