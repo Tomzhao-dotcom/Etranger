@@ -1,0 +1,6 @@
+﻿/**/*.idea
+/**/*.iml
+/**/.bak
+/**/rebel.xml
+/**/target
+/**/out
