@@ -1,10 +1,10 @@
-package com.etranger.source.entity;
+package com.etranger.web.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "EtrangerDataSource", schema = "etranger", catalog = "etranger")
+@Table(name = "etrangerdatasource")
 public class EtrangerDataSourceEntity {
     private String code;
     private String name;

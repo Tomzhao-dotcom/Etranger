@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Etranger.iml" filepath="$PROJECT_DIR$/.idea/Etranger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Etranger.iml" filepath="$PROJECT_DIR$/Etranger.iml" />
       <module fileurl="file://$PROJECT_DIR$/Etranger-model/Etranger-model.iml" filepath="$PROJECT_DIR$/Etranger-model/Etranger-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/Etranger-service/Etranger-service.iml" filepath="$PROJECT_DIR$/Etranger-service/Etranger-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/Etranger-source/Etranger-source.iml" filepath="$PROJECT_DIR$/Etranger-source/Etranger-source.iml" />

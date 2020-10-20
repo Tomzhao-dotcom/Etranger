@@ -22,7 +22,6 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Etranger" options="-parameters" />
       <module name="Etranger-model" options="-parameters" />
       <module name="Etranger-service" options="-parameters" />
       <module name="Etranger-source" options="-parameters" />
