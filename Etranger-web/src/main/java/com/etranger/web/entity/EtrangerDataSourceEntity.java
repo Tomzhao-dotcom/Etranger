@@ -36,7 +36,7 @@ public class EtrangerDataSourceEntity {
     }
 
     @Basic
-    @Column(name = "dbtype", nullable = false, length = -1)
+    @Column(name = "dbtype", nullable = false, length = 36)
     public String getDbtype() {
         return dbtype;
     }

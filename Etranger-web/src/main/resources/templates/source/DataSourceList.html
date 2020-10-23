@@ -13,6 +13,20 @@
     <link rel="stylesheet" th:href="@{/vendor/fonts/fontawesome/css/fontawesome-all.css}">
     <link rel="stylesheet" th:href="@{/vendor/datepicker/tempusdominus-bootstrap-4.css}"/>
     <link rel="stylesheet" th:href="@{/vendor/inputmask/css/inputmask.css}"/>
+    <link rel="stylesheet" th:href="@{/libs/css/DataSource.css}">
+    <script th:src="@{/libs/js/jquery-3.5.1.min.js}"></script>
+<!--    <script type="text/javascript" th:src="@{/static/libs/js/DataSource}" src="/static/libs/js/DataSource.js"></script>-->
+    <script>
+        let old, oldColor;
+        function test(e){
+            if(e.bgColor=="#e6e6f2"){
+                e.bgColor="#fff";
+            }else{
+                e.bgColor="#e6e6f2";
+            }
+        }
+
+    </script>
 </head>
 <body>
 <div class="dashboard-main-wrapper">
@@ -25,34 +39,47 @@
                 <p></p>
             </div>
             <div class="card">
-                <h5 class="card-header">******</h5>
+                <!--                <h5 class="card-header">&#45;&#45;①&#45;&#45;</h5>-->
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>序号</th>
                             <th>编号</th>
                             <th>名称</th>
                             <th>数据库类型</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>IP地址</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!--each来进行for循环求值-->
-                        <tr th:each="dataSource : ${dataSourceEntityList}">
-                            <th scope="row" th:text="${dataSource.id}">1</th>
+                        <tr th:each="dataSource : ${dataSourceEntityList}" id="source-table" onclick="test(this)">
+                            <!--                            <th scope="row" th:text="${dataSource.id}">1</th>-->
+                            <th scope="row" th:text="${dataSourceStat.index+1}">1</th>
                             <td th:text="${dataSource.getCode()}">neo</td>
                             <td th:text="${dataSource.getName()}">Otto</td>
-                            <td th:text="${dataSource.getDbtype()}">6</td>
-                            <td><a th:href="@{/source/toEdit(id=${dataSource.id})}">edit</a></td>
-                            <td><a th:href="@{/source/delete(id=${dataSource.id})}">delete</a></td>
+<!--                            <td th:text="${dataSource.getDbtype()}">6</td>-->
+                            <td th:if="${dataSource.getDbtype() =='Oracle'}">Oracle</td>
+                            <td th:if="${dataSource.getDbtype() =='SQLServer'}">SQLServer</td>
+                            <td th:if="${dataSource.getDbtype() =='PgSQL'}">PgSQL</td>
+                            <td th:if="${dataSource.getDbtype() =='MySQL'}">MySQL</td>
+                            <td th:if="${dataSource.getDbtype() =='DM'}">达梦</td>
+                            <td th:if="${dataSource.getDbtype() =='HighGo'}">瀚高</td>
+                            <td th:text="${dataSource.getIp()}">ip</td>
+                            <td><a th:href="@{/source/toEdit(id=${dataSource.id})}">编辑</a></td>
+                            <td><a th:href="@{/source/DataSourceView(id=${dataSource.id})}">查看</a></td>
+                            <td><a th:href="@{/source/delete(id=${dataSource.id})}">删除</a></td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="form-group">
-                        <div class="col-sm-2 control-label">
-                            <a href="/source/toAdd" th:href="@{/source/toAdd}" class="btn btn-info">add</a>
+                        <div class="col-sm-6 control-label">
+                            <a href="/source/toAdd" th:href="@{/source/toAdd}" class="btn btn-info">新增</a>
+                            <a href="/source" th:href="@{/source/DataSourceList}" class="btn btn-info">刷新</a>
+                            <a href="/source/toAdd" th:href="@{/source/toAdd}" class="btn btn-info">连接测试</a>
                         </div>
                     </div>
                 </div>

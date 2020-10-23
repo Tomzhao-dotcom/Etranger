@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/vendor/fonts/fontawesome/css/fontawesome-all.css}">
     <link rel="stylesheet" th:href="@{/vendor/datepicker/tempusdominus-bootstrap-4.css}"/>
     <link rel="stylesheet" th:href="@{/vendor/inputmask/css/inputmask.css}"/>
+    <link rel="stylesheet" th:href="@{/libs/css/DataSource.css}">
 </head>
 <body>
 <div class="dashboard-main-wrapper">
@@ -20,7 +21,7 @@
     <div class="dashboard-wrapper">
         <div class="container-fluid dashboard-content">
             <div class="section-block" id="basicform">
-                <h3 class="section-title">编辑数据源</h3>
+                <h3 class="section-title"></h3>
                 <p></p>
             </div>
             <div class="card">
@@ -30,28 +31,28 @@
                 </div>
                 <div class="card-body">
                     <div>
-                        <form class="form-horizontal" th:action="@{/source/DataSourceEdit}" th:object="${sourceEntity}"
-                              method="post">
-                            <input type="hidden" name="id" th:value="*{id}"/>
+                        <form class="form-horizontal" th:action="@{/source/DataSourceView}" th:object="${sourceEntity}"
+                              method="get">
+                            <input type="hidden" name="id" readonly="readonly" th:value="*{id}"/>
                             <div class="form-group">
                                 <label for="code" class="col-sm-2 control-label">编号</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="code" id="code" th:value="*{code}"
-                                           placeholder="填写数据源编号"/>
+                                    <input type="text" class="form-control" name="code" id="code" readonly="readonly"
+                                           th:value="*{code}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">名称</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name" id="name" th:value="*{name}"
-                                           placeholder="填写数据源名称"/>
+                                    <input type="text" class="form-control" name="name" id="name" readonly="readonly"
+                                           th:value="*{name}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="dbtype" class="col-sm-2 control-label">数据库类型</label>
                                 <div class="col-sm-6">
-                                    <select class="form-control" name="dbtype" id="dbtype" th:value="*{dbtype}"
-                                            placeholder="请选择对应数据库类型">
+                                    <select class="form-control" name="dbtype" id="dbtype" disabled="disabled"
+                                            th:value="*{dbtype}">
                                         <option value="Oracle" selected>Oracle</option>
                                         <option value="SQLServer">SQLServer</option>
                                         <option value="PgSQL">PgSQL</option>
@@ -64,41 +65,30 @@
                             <div class="form-group">
                                 <label for="ip" class="col-sm-2 control-label">IP地址</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="ip" id="ip" th:value="*{ip}"
-                                           placeholder="填写数据库IP地址"/>
+                                    <input type="text" class="form-control" name="ip" id="ip" readonly="readonly"
+                                           th:value="*{ip}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="dbname" class="col-sm-2 control-label">数据库名称</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="dbname" id="dbname"
-                                           th:value="*{dbname}"
-                                           placeholder="填写数据库实例名"/>
+                                           readonly="readonly" th:value="*{dbname}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="username" id="username"
-                                           th:value="*{username}"
-                                           placeholder="填写数据库用户名"/>
+                                           readonly="readonly" th:value="*{username}"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control" name="password" id="password"
-                                           th:value="*{password}"
-                                           placeholder="填写数据库用户密码"/>
+                                           readonly="readonly" th:value="*{password}"/>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-6">
-                                    <input type="submit" value="Save" class="btn btn-info"/>&nbsp; &nbsp; &nbsp;
-                                    <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}"
-                                       class="btn btn-info">Cancel</a>
-                                </div>
-
                             </div>
                         </form>
                     </div>

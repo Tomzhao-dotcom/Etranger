@@ -24,7 +24,10 @@
                 <p></p>
             </div>
             <div class="card">
-                <h5 class="card-header">******</h5>
+                <div>
+                    <img id="source-back" th:src="@{/images/back.jpg}" onclick="location.href='/source'"/>
+                    <a href="/source" th:href="@{/source/DataSourceList}"></a>
+                </div>
                 <div class="card-body">
                     <div>
                         <form class="form-horizontal" th:action="@{/source/DataSourceAdd}" method="post">
@@ -38,7 +41,7 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">名称</label>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control" name="name" id="name"
+                                    <input type="text" class="form-control" name="name" id="name"
                                            placeholder="填写数据源名称"/>
                                 </div>
                             </div>
@@ -87,6 +90,8 @@
                                     <input type="submit" value="Save" class="btn btn-info"/>
                                     &nbsp; &nbsp; &nbsp;
                                     <input type="reset" value="Reset" class="btn btn-info"/>
+                                    &nbsp; &nbsp; &nbsp;
+                                    <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}" class="btn btn-info">Cancel</a>
                                 </div>
                             </div>
                         </form>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class DataSourceController {
@@ -23,14 +24,7 @@ public class DataSourceController {
 
     @RequestMapping( "/source/DataSourceList" )
     public String list(Model model) {
-        List<EtrangerDataSourceEntity> dataSourceEntityList = new ArrayList<>();
-        EtrangerDataSourceEntity entity = new EtrangerDataSourceEntity();
-        entity.setId("001");
-        entity.setCode("001");
-        entity.setName("test");
-        entity.setDbtype("Oracle");
-        dataSourceEntityList.add(entity);
-        //List<EtrangerDataSourceEntity> dataSourceEntityList=dataSourceService.getDataSourceList();
+        List<EtrangerDataSourceEntity> dataSourceEntityList=dataSourceService.getDataSourceList();
         model.addAttribute("dataSourceEntityList", dataSourceEntityList);
         return "source/DataSourceList";
     }
@@ -43,21 +37,18 @@ public class DataSourceController {
 
     @RequestMapping( "/source/DataSourceAdd" )
     public String add(EtrangerDataSourceEntity sourceEntity) {
+        sourceEntity.setId(UUID.randomUUID().toString());
         dataSourceService.save(sourceEntity);
         return "redirect:/source/DataSourceList";
     }
 
     @RequestMapping( "/source/toEdit" )
     public String toEdit(Model model, String id) {
-        //EtrangerDataSourceEntity sourceEntity = dataSourceService.findDataSouceById(id);
-        EtrangerDataSourceEntity sourceEntity = new EtrangerDataSourceEntity();
-        sourceEntity.setId("001");
-        sourceEntity.setCode("001");
-        sourceEntity.setName("test");
-        sourceEntity.setDbtype("Oracle");
+        EtrangerDataSourceEntity sourceEntity = dataSourceService.findDataSouceById(id);
         model.addAttribute("sourceEntity", sourceEntity);
         return "source/DataSourceEdit";
     }
+
 
     @RequestMapping( "/source/DataSourceEdit" )
     public String edit(EtrangerDataSourceEntity sourceEntity) {
@@ -69,6 +60,13 @@ public class DataSourceController {
     public String delete(String id) {
         dataSourceService.delete(id);
         return "redirect:/source/DataSourceList";
+    }
+
+    @RequestMapping("/source/DataSourceView")
+    public String view(Model model, String id){
+        EtrangerDataSourceEntity sourceEntity = dataSourceService.findDataSouceById(id);
+        model.addAttribute("sourceEntity", sourceEntity);
+        return "source/DataSourceView";
     }
 
 }
