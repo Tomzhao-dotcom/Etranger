@@ -35,14 +35,14 @@
                                 <label for="code" class="col-sm-2 control-label">编号</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="code" id="code"
-                                           placeholder="填写数据源编号"/>
+                                           placeholder="填写数据源编号" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">名称</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="name" id="name"
-                                           placeholder="填写数据源名称"/>
+                                           placeholder="填写数据源名称" required/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -51,8 +51,8 @@
                                     <select class="form-control" name="dbtype" id="dbtype" placeholder="请选择对应数据库类型">
                                         <option value="Oracle" selected>Oracle</option>
                                         <option value="SQLServer">SQLServer</option>
-                                        <option value="PgSQL">PgSQL</option>
-                                        <option value="MySQL">MySQL</option>
+                                        <option value="PostgreSQL">PostgreSQL</option>
+                                        <option value="MySql">MySql</option>
                                         <option value="DM">达梦</option>
                                         <option value="HighGo">瀚高</option>
                                     </select>
@@ -61,37 +61,37 @@
                             <div class="form-group">
                                 <label for="ip" class="col-sm-2 control-label">IP地址</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="ip" id="ip" placeholder="填写数据库IP地址"/>
+                                    <input type="text" class="form-control" name="ip" id="ip" placeholder="填写数据库IP地址" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="dbname" class="col-sm-2 control-label">数据库名称</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="dbname" id="dbname"
-                                           placeholder="填写数据库实例名"/>
+                                           placeholder="填写数据库实例名" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="userName" class="col-sm-2 control-label">用户</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="username" id="username"
-                                           placeholder="填写数据库用户名"/>
+                                           placeholder="填写数据库用户名" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control" name="password" id="password"
-                                           placeholder="填写数据库用户密码"/>
+                                           placeholder="填写数据库用户密码" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <input type="submit" value="Save" class="btn btn-info"/>
+                                    <input type="submit" value="保存" class="btn btn-info"/>
                                     &nbsp; &nbsp; &nbsp;
-                                    <input type="reset" value="Reset" class="btn btn-info"/>
+                                    <input type="reset" value="重置" class="btn btn-info"/>
                                     &nbsp; &nbsp; &nbsp;
-                                    <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}" class="btn btn-info">Cancel</a>
+                                    <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}" class="btn btn-info">取消</a>
                                 </div>
                             </div>
                         </form>

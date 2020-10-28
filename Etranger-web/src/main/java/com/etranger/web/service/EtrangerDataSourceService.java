@@ -10,4 +10,5 @@ public interface EtrangerDataSourceService {
     void save(EtrangerDataSourceEntity dataSourceEntity);
     void edit(EtrangerDataSourceEntity dataSourceEntity);
     void delete(String id);
+    String saveValidate(EtrangerDataSourceEntity dataSourceEntity);
 }

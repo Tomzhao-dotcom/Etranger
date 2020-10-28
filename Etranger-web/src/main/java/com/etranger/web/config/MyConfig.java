@@ -15,4 +15,5 @@ public class MyConfig implements WebMvcConfigurer {
         registry.addViewController("/influencer-finder").setViewName("influencer-finder");
         registry.addViewController("/influencer-profile").setViewName("influencer-profile");
     }
+
 }

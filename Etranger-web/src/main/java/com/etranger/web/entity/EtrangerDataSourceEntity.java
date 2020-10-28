@@ -1,6 +1,9 @@
 package com.etranger.web.entity;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,8 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "code", nullable = false, length = 100)
+    @NotEmpty(message = "编号不能为空")
+    @Length(min = 1,max = 100,message = "编号长度在1到100个字符之间")
     public String getCode() {
         return code;
     }
@@ -27,6 +32,8 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "name", nullable = false, length = 255)
+    @NotEmpty(message = "名称不能为空")
+    @Length(min = 2,max = 255,message = "名称长度在2到255个字符之间")
     public String getName() {
         return name;
     }
@@ -47,6 +54,7 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "ip", nullable = false, length = 255)
+    @NotEmpty(message = "IP地址不能为空")
     public String getIp() {
         return ip;
     }
@@ -57,6 +65,7 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "dbname", nullable = false, length = 255)
+    @NotEmpty(message = "数据库名称不能为空")
     public String getDbname() {
         return dbname;
     }
@@ -67,6 +76,7 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "username", nullable = false, length = 255)
+    @NotEmpty(message = "用户名不能为空")
     public String getUsername() {
         return username;
     }
@@ -77,6 +87,7 @@ public class EtrangerDataSourceEntity {
 
     @Basic
     @Column(name = "password", nullable = false, length = 255)
+    @NotEmpty(message = "密码不能为空")
     public String getPassword() {
         return password;
     }

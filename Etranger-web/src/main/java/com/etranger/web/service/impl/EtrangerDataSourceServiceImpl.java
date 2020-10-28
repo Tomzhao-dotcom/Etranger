@@ -25,7 +25,10 @@ public class EtrangerDataSourceServiceImpl implements EtrangerDataSourceService 
 
     @Override
     public EtrangerDataSourceEntity findDataSouceById(String id) {
-        return dataSourceRepository.findById(id).get();
+        if(dataSourceRepository.findById(id).isPresent()){
+            return dataSourceRepository.findById(id).get();
+        }
+        return new EtrangerDataSourceEntity();
     }
 
     @Override
@@ -46,5 +49,10 @@ public class EtrangerDataSourceServiceImpl implements EtrangerDataSourceService 
     //@Transactional( rollbackFor = Exception.class )
     public void delete(String id) {
         dataSourceRepository.deleteById(id);
+    }
+
+    @Override
+    public String saveValidate(EtrangerDataSourceEntity dataSourceEntity) {
+        return null;
     }
 }
