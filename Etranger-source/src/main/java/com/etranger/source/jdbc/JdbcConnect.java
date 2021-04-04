@@ -10,6 +10,13 @@ import java.util.Properties;
 import java.util.concurrent.*;
 
 public class JdbcConnect {
+
+    private static String jdbcConnectErrorMsg;
+
+    public static String getJdbcConnectErrorMsg() {
+        return jdbcConnectErrorMsg;
+    }
+
     private static final Logger LOG = LoggerFactory.getLogger(JdbcConnect.class);
 
     private static final ThreadLocal<ExecutorService> rsExecutors = new ThreadLocal<ExecutorService>() {
@@ -23,7 +30,13 @@ public class JdbcConnect {
     };
 
     public static String getUrl(DataBaseType dataBaseType, String ip, String dbName) {
-        return "jdbc:" + dataBaseType.getTypeName() + "://" + ip + "/" + dbName;
+        if (dataBaseType == DataBaseType.Oracle) {
+            return "jdbc:" + dataBaseType.getTypeName() + ":thin:@" + ip + "/" + dbName;
+        } else if (dataBaseType == DataBaseType.SQLServer) {
+            return "jdbc:" + dataBaseType.getTypeName() + "://" + ip + ";databaseName=" + dbName;
+        } else {
+            return "jdbc:" + dataBaseType.getTypeName() + "://" + ip + "/" + dbName;
+        }
     }
 
     public static boolean testConnWithoutRetry(DataBaseType dataBaseType, String url, String user, String pass, List<String> preSql) {
@@ -191,6 +204,7 @@ public class JdbcConnect {
             DriverManager.setLoginTimeout(Constant.TIMEOUT_SECONDS);
             return DriverManager.getConnection(url, prop);
         } catch (Exception e) {
+            jdbcConnectErrorMsg = e.toString();
             LOG.error("dataBaseType:" + dataBaseType + " 错误信息:" + e.getMessage() + " 用户:" + prop.getProperty("user"));
             return null;
         }

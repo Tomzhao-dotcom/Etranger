@@ -24,10 +24,10 @@
                 <p></p>
             </div>
             <div class="card">
-                <div>
-                    <img id="source-back" th:src="@{/images/back.jpg}" onclick="location.href='/source'"/>
-                    <a href="/source" th:href="@{/source/DataSourceList}"></a>
-                </div>
+<!--                <div>-->
+<!--                    <img id="source-back" th:src="@{/images/back.jpg}" onclick="location.href='/source'"/>-->
+<!--                    <a href="/source" th:href="@{/source/DataSourceList}"></a>-->
+<!--                </div>-->
                 <div class="card-body">
                     <div>
                         <form class="form-horizontal" th:action="@{/source/DataSourceEdit}" th:object="${sourceEntity}"
@@ -50,14 +50,22 @@
                             <div class="form-group">
                                 <label for="dbtype" class="col-sm-2 control-label">数据库类型</label>
                                 <div class="col-sm-6">
-                                    <select class="form-control" name="dbtype" id="dbtype" th:value="*{dbtype}"
+                                    <select class="form-control" name="dbtype" id="dbtype"
+                                            th:field="${sourceEntity.dbtype}" th:value="*{dbtype}"
                                             placeholder="请选择对应数据库类型">
-                                        <option value="Oracle" selected>Oracle</option>
-                                        <option value="SQLServer">SQLServer</option>
-                                        <option value="PostgreSQL">PostgreSQL</option>
-                                        <option value="MySql">MySql</option>
-                                        <option value="DM">达梦</option>
-                                        <option value="HighGo">瀚高</option>
+                                        <option th:selected="${sourceEntity.dbtype=='Oracle'}" value="Oracle">Oracle
+                                        </option>
+                                        <option th:selected="${sourceEntity.dbtype=='SQLServer'}" value="SQLServer">
+                                            SQLServer
+                                        </option>
+                                        <option th:selected="${sourceEntity.dbtype=='PostgreSQL'}" value="PostgreSQL">
+                                            PostgreSQL
+                                        </option>
+                                        <option th:selected="${sourceEntity.dbtype=='MySql'}" value="MySql">MySql
+                                        </option>
+                                        <option th:selected="${sourceEntity.dbtype=='DM'}" value="DM">达梦</option>
+                                        <option th:selected="${sourceEntity.dbtype=='HighGo'}" value="HighGo">瀚高
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -73,7 +81,7 @@
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" name="dbname" id="dbname"
                                            th:value="*{dbname}"
-                                           placeholder="填写数据库实例名"/>
+                                           placeholder="填写数据库实例名(或Oracle服务名)"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -94,9 +102,9 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-6">
-                                    <input type="submit" value="Save" class="btn btn-info"/>&nbsp; &nbsp; &nbsp;
+                                    <input type="submit" value="保存" class="btn btn-info"/>&nbsp; &nbsp; &nbsp;
                                     <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}"
-                                       class="btn btn-info">Cancel</a>
+                                       class="btn btn-info">取消</a>
                                 </div>
 
                             </div>

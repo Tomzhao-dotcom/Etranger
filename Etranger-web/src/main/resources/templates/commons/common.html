@@ -15,12 +15,12 @@
         <link rel="stylesheet" th:href="@{/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css}">
         <link rel="stylesheet" th:href="@{/vendor/charts/c3charts/c3.css}">
         <link rel="stylesheet" th:href="@{/vendor/fonts/flag-icon-css/flag-icon.min.css}">
-        <title>主数据管理</title>
+        <title>MaterData Manage</title>
     </head>
 
     <div class="dashboard-header" th:fragment="navbar">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" th:href="@{/index}">主数据管理</a>
+            <a class="navbar-brand" th:href="@{/index}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
                                         <a href="#" class="list-group-item list-group-item-action active">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-2.jpg" alt=""
+                                                        src="/images/avatar-2.jpg" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Jeremy Rakestraw</span>accepted
@@ -57,7 +57,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-3.jpg" alt=""
+                                                        src="/images/avatar-3.jpg" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">John Abraham </span>is
@@ -69,7 +69,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-4.jpg" alt=""
+                                                        src="/images/avatar-4.jpg" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Monaan Pechi</span>
@@ -81,7 +81,7 @@
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
                                                 <div class="notification-list-user-img"><img
-                                                        src="assets/images/avatar-5.jpg" alt=""
+                                                        src="/images/avatar-5.jpg" alt=""
                                                         class="user-avatar-md rounded-circle"></div>
                                                 <div class="notification-list-user-block"><span
                                                         class="notification-list-user-name">Jessica Caruso</span>accepted
@@ -144,7 +144,7 @@
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="assets/images/avatar-1.jpg" alt=""
+                                src="/images/avatar-1.jpg" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                              aria-labelledby="navbarDropdownMenuLink2">
@@ -179,7 +179,7 @@
                             <a class="nav-link" href="#" data-toggle="collapse"
                                th:aria-expanded="${TFNav == 'Master' ? true: false}"
                                data-target="#submenu-m1" aria-controls="submenu-m1">
-                                <i class="fas fa-fw fa-table"></i>主数据管理
+                                <i class="fas fa-fw fa-table"></i>Source and Model
                             </a>
                             <div id="submenu-m1" class="collapse submenu"
                                  th:class="${TFNav == 'Master' ? 'collapse submenu show': 'collapse submenu'}" style="">
@@ -187,13 +187,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link"
                                            th:class="${TNode == 'DataSource' ? 'nav-link active': 'nav-link'}"
-                                           th:href="@{/source}">数据源定义
+                                           th:href="@{/source}">Source
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
                                            th:class="${TNode == 'DataTable' ? 'nav-link active': 'nav-link'}"
-                                           th:href="@{/mdm/data-model}">模型定义
+                                           th:href="@{/mdm/data-model}">Model
                                         </a>
                                     </li>
                                     <li class="nav-item">

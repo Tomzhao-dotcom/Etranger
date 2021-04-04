@@ -38,8 +38,9 @@ public class DbLinkServiceImpl implements DbLinkService {
             boolean state = JdbcConnect.testConnWithoutRetry(db, url, user, password, new ArrayList<>());
             if (state) {
                 return "true";
+            }else{
+                return JdbcConnect.getJdbcConnectErrorMsg();
             }
-            return "false";
         }
         return "false";
     }

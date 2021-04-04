@@ -25,10 +25,10 @@
                 <p></p>
             </div>
             <div class="card">
-                <div>
-                    <img id="source-back" th:src="@{/images/back.jpg}" onclick="location.href='/source'"/>
-                    <a href="/source" th:href="@{/source/DataSourceList}"></a>
-                </div>
+<!--                <div>-->
+<!--                    <img id="source-back" th:src="@{/images/back.jpg}" onclick="location.href='/source'"/>-->
+<!--                    <a href="/source" th:href="@{/source/DataSourceList}"></a>-->
+<!--                </div>-->
                 <div class="card-body">
                     <div>
                         <form class="form-horizontal" th:action="@{/source/DataSourceView}" th:object="${sourceEntity}"
@@ -53,12 +53,12 @@
                                 <div class="col-sm-6">
                                     <select class="form-control" name="dbtype" id="dbtype" disabled="disabled"
                                             th:value="*{dbtype}">
-                                        <option value="Oracle" selected>Oracle</option>
-                                        <option value="SQLServer">SQLServer</option>
-                                        <option value="PostgreSQL">PostgreSQL</option>
-                                        <option value="MySql">MySql</option>
-                                        <option value="DM">达梦</option>
-                                        <option value="HighGo">瀚高</option>
+                                        <option th:if="${sourceEntity.dbtype=='Oracle'}" th:selected="selected" value="Oracle">Oracle</option>
+                                        <option th:if="${sourceEntity.dbtype=='SQLServer'}" th:selected="selected" value="SQLServer">SQLServer</option>
+                                        <option th:if="${sourceEntity.dbtype=='PostgreSQL'}" th:selected="selected" value="PostgreSQL">PostgreSQL</option>
+                                        <option th:if="${sourceEntity.dbtype=='MySql'}" th:selected="selected" value="MySql">MySql</option>
+                                        <option th:if="${sourceEntity.dbtype=='DM'}" th:selected="selected" value="DM">达梦</option>
+                                        <option th:if="${sourceEntity.dbtype=='HighGo'}" th:selected="selected" value="HighGo">瀚高</option>
                                     </select>
                                 </div>
                             </div>
@@ -88,6 +88,11 @@
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control" name="password" id="password"
                                            readonly="readonly" th:value="*{password}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <a href="/source/DataSourceList" th:href="@{/source/DataSourceList}" class="btn btn-info">返回</a>
                                 </div>
                             </div>
                         </form>
